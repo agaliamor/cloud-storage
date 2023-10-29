@@ -1,0 +1,38 @@
+/*=============== BASE ===============*/
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: #DCE8FF;  
+    color: #000000;
+    max-width: 1100px;
+    width: 100%;
+    margin: auto;
+}
+
+h1, h2, h3 {
+    color: #fff;
+}
+
+body .window { 
+    padding: 60px;
+    margin-bottom: 58px;
+    text-align: left;
+    background-color: #96B8FA;
+    width: 100%; 
+    max-width: 450px;
+    border-radius: 20px;
+    margin: auto;
+    margin-top: 50px;
+}
+
+body .input-box { 
+    margin: 0 0 10px;
+    max-width: 173px;
+
+
+}
