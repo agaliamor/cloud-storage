@@ -1,14 +1,16 @@
 const express = require('express');
-const multer = require('multer');
 const sqlite3 = require('sqlite3');
+const jwt = require('jsonwebtoken');
 const bcrypt = require('bcrypt');
+const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 const cors = require('cors')
-const jwt = require('jsonwebtoken');
 const session = require('express-session');
+
 const app = express();
 const port = 3000;
+
 app.use(cors())
 app.use(express.json());
 
@@ -25,7 +27,7 @@ const authenticateUser = (req, res, next) => {
   if (req.session.user) {
     next();
   } else {
-    res.status(401).json({ error: 'Unauthorized' });
+    res.status(401).json({ error: 'Неавторизованный' });
   }
 };
 const db = new sqlite3.Database('files.db');
@@ -52,9 +54,9 @@ app.post('/upload', upload.single('file'),(req, res) => {
   db.run('INSERT INTO files (name) VALUES (?)', [file.originalname], function(err) {
     if (err) {
       console.error(err);
-      res.status(500).json({ error: 'Internal server error' });
+      res.status(500).json({ error: 'Внутренняя ошибка сервера' });
     } else {
-      res.json({ message: 'File uploaded successfully' });
+      res.json({ message: 'Файл успешно загружен' });
     }
   });
 });
@@ -65,21 +67,21 @@ app.get('/download/:filename',  (req, res) => {
   db.get('SELECT name FROM files WHERE name = ?', [fileName], (err, row) => {
     if (err) {
       console.error(err);
-      res.status(500).json({ error: 'Internal server error' });
+      res.status(500).json({ error: 'Внутренняя ошибка сервера' });
     } else if (!row) {
-      res.status(404).json({ error: 'File not found' });
+      res.status(404).json({ error: 'Файл не найден' });
     } else {
       const filePath = path.join(__dirname, 'uploads', row.name);
 
       fs.access(filePath, fs.constants.F_OK, (err) => {
         if (err) {
           console.error(err);
-          res.status(500).json({ error: 'Internal server error' });
+          res.status(500).json({ error: 'Внутренняя ошибка сервера' });
         } else {
           res.download(filePath, row.name, (err) => {
             if (err) {
               console.error(err);
-              res.status(500).json({ error: 'Internal server error' });
+              res.status(500).json({ error: 'Внутренняя ошибка сервера' });
             }
           });
         }
@@ -92,7 +94,7 @@ app.get('/files', (req, res) => {
   db.all('SELECT name FROM files', (err, rows) => {
     if (err) {
       console.error(err);
-      res.status(500).json({ error: 'Internal server error' });
+      res.status(500).json({ error: 'Внутренняя ошибка сервера' });
     } else {
       res.json(rows);
     }
@@ -112,10 +114,11 @@ app.post('/register', async (req, res) => {
     db.run('INSERT INTO users (username, password) VALUES (?, ?)', [username, hashedPassword], function(err) {
       if (err) {
         console.error(err);
-        res.status(500).json({ error: 'Internal server error' });
-      } else {
+        res.status(500).json({ error: 'Внутренняя ошибка сервера'});
+      } 
+      else {
         req.session.user = username; 
-        res.json({ message: 'User registered successfully' });
+        res.json({ message: 'Пользователь успешно зарегистрировался'});
       }
     });
   });
@@ -126,18 +129,18 @@ app.post('/register', async (req, res) => {
     db.get('SELECT password FROM users WHERE username = ?', [username], async (err, row) => {
       if (err) {
         console.error(err);
-        res.status(500).json({ error: 'Internal server error' });
+        res.status(500).json({ error: 'Внутренняя ошибка сервера'});
       } else if (!row) {
-        res.status(401).json({ error: 'Invalid username or password' });
+        res.status(401).json({ error: 'Неверное имя пользователя или пароль'});
       } else {
         const hashedPassword = row.password;
         const match = await bcrypt.compare(password, hashedPassword);
         
         if (match) {
           req.session.user = username;
-          res.json({ message: 'Authentication successful' });
+          res.json({ message: 'Аутентификация прошла успешно'});
         } else {
-          res.status(401).json({ error: 'Invalid username or password' });
+          res.status(401).json({ error: 'Неверное имя пользователя или пароль'});
         }
       }
     });
@@ -146,5 +149,5 @@ app.post('/register', async (req, res) => {
 
 
 app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+  console.log(`Сервер был запущен на ${port} порте.`);
 });
