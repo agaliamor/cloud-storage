@@ -16,14 +16,13 @@ function updateFilesList() {
         filesList.appendChild(listItem);
 
         const downloadOption = document.createElement('option');
-        downloadOption.value = file.name;
         downloadOption.textContent = file.name;
+        downloadOption.value = file.name;
         downloadSelect.appendChild(downloadOption);
       });
     })
     .catch(error => console.error(error));
 }
-
 
 
 uploadForm.addEventListener('submit', event => {
