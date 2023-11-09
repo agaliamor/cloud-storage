@@ -6,126 +6,113 @@
     <title>помогите</title>
     <link rel="stylesheet" href="./src/assets/css/style.css" />
   </head>
-  <bod y>
-    <!-- <div class="container"> -->
-
-        <div class="container" id="container">
-            <div class="form-box register">
-                <form action="#">
-                    <h1>Регистрация</h1>
-                    <input type="email" placeholder="Email"/>
-                    <input type="password" placeholder="Password"/>
-                    <button>Создать</button>
-                </form>
-            </div>
-            <div class="form-box login">
-                <form action="#">
-                    <h1>Авторизация</h1>
-                    <input type="email" placeholder="Email"/>
-                    <input type="password" placeholder="Password"/>
-                    <button>Войти</button>
-                </form>
-            </div>
-            <div class="overlay-box">
-                <div class="overlay">
-                    <div class="overlay-panel overlay-left">
-                        <h1>С возвращением!</h1>
-                        <p>Пожалуйста, войдите в систему, чтобы получить доступ к своему облачному хранилищу</p>
-                        <button class="ghost" id="signIn">Войти</button>
-                    </div>
-                    <div class="overlay-panel overlay-right">
-                        <h1>Добро пожаловать!</h1>
-                        <p>Введите свои персональные данные и храните воспоминания вместе с нами</p>
-                        <button class="ghost" id="signUp">Зарегистрироваться</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-      <!-- <main>
-        <div class="wrapper">
-          =============== РЕГИСТРАЦИЯ ===============
-          <div class="form-box register">
-            <h2>РЕГИСТРАЦИЯ</h2>
-            <form id="register" action="/apply/" method="post" name="form">
-              <div class="input-box">
-                <input type="email" name="email" placeholder="Почта" required />
-              </div>
-              <div class="input-box">
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Пароль"
-                  required
-                />
-              </div>
-
-              <button type="submit" class="btn">Зарегистрироваться</button>
-            </form>
+  <body>
+    <div class="container" id="container">
+      <!-- =============== РЕГИСТРАЦИЯ =============== -->
+      <div class="form-box register">
+        <form id="register" action="/apply/" method="post" name="form">
+          <h1>Регистрация</h1>
+          <div class="input-box">
+            <input type="email" name="email" placeholder="Почта" required/>
           </div>
-
-          =============== ЛОГИН ===============
-          <div class="form-box login">
-            <h2>ВХОД</h2>
-            <form action="#" name="login">
-              <div class="input-box">
-                <input type="email" name="email" placeholder="Почта" required />
-              </div>
-              <div class="input-box">
-                <input
-                  type="password"
-                  name="password"
-                  placeholder="Пароль"
-                  required
-                />
-              </div>
-              <button type="submit" class="btn">Войти</button>
-            </form>
+          <div class="input-box">
+            <input type="password" name="password" placeholder="Пароль" required />
           </div>
-        </div> -->
-
-        <!-- <h2>Загрузить файл</h2>
-        <form id="uploadForm" enctype="multipart/form-data">
-          <input type="file" name="file" id="fileInput" required />
-          <button type="submit">Загрузить!</button>
+          <button type="submit" class="btn">Создать</button>
         </form>
+      </div>
 
-        <h2>Загруженные файлы</h2>
-        <ul id="filesList"></ul>
+      <!-- =============== ЛОГИН =============== -->
+      <div class="form-box login">
+        <form action="#" name="login">
+          <h1>Авторизация</h1>
+          <div class="input-box">
+            <input type="email" name="email" placeholder="Почта" required/>
+          </div>
+          <div class="input-box">
+            <input type="password" name="password" placeholder="Пароль" required/>
+          </div>
+          <button type="submit" class="btn" onclick="myFunction();">Войти</button>
+        </form>
+      </div>
 
-        <h2>Скачанные файлы</h2>
-        <form id="downloadForm">
-          <select id="downloadSelect" required>
-            <option value="" disabled selected>Выбрать файл</option>
-          </select>
-          <button type="submit">Скачать!</button>
-        </form> -->
-        
-        <script src="./export.js"></script>
-        <script src="./index.js"></script>
-      <!-- </main> -->
+      <div class="overlay-box">
+        <div class="overlay">
+          <div class="overlay-panel overlay-left">
+            <h1>С возвращением!</h1>
+            <p>
+              Пожалуйста, войдите в систему, чтобы получить доступ к своему
+              облачному хранилищу
+            </p>
+            <button class="ghost" id="signIn">Войти</button>
+          </div>
+          <div class="overlay-panel overlay-right">
+            <h1>Добро пожаловать!</h1>
+            <p>
+              Введите свои персональные данные и храните воспоминания вместе с
+              нами
+            </p>
+            <button class="ghost" id="signUp">Зарегистрироваться</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-    <!-- </div> -->
-  </bod>
+    <div class="image">
+      <img src="/src/assets/img/flower.svg" alt="flower">
+    </div>
+  
+    <h2>Загрузить файл</h2>
+    <form id="uploadForm" enctype="multipart/form-data">
+      <input type="file" name="file" id="fileInput" required />
+      <button type="submit">Загрузить!</button>
+    </form>
+    
+    <h2>Загруженные файлы</h2>
+    <ul id="filesList"></ul>
+    
+    <h2>Скачанные файлы</h2>
+    <form id="downloadForm">
+      <select id="downloadSelect" required>
+        <option value="" disabled selected>Выбрать файл</option>
+      </select>
+      <button type="submit">Скачать!</button>
+    </form>
+
+    <!-- =============== СКРИПТЫ =============== -->
+
+    <script src="./export.js"></script>
+    <script src="./index.js"></script>
+
+    <script>
+      const signUpButton = document.getElementById("signUp");
+      const signInButton = document.getElementById("signIn");
+      const container = document.getElementById("container");
+
+      signUpButton.addEventListener("click", () => {
+        container.classList.add("right-panel-active");
+      });
+
+      signInButton.addEventListener("click", () => {
+        container.classList.remove("right-panel-active");
+      });
+
+      function myFunction() {
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        if(email == 'admin@gmail.com' && password == '123'){
+          alert("help me");
+          window.location.href="cs.html";
+        } else {
+          alert("blyat");
+          return;
+        }
+      };
+
+      // function myFunction() {
+      //   window.location.href='cs.html';
+      // }
+    </script>
+  </body>
 </html>
-
-
-
-

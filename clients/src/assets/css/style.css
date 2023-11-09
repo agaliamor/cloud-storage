@@ -5,61 +5,6 @@
     padding: 0;
     margin: 0;
 }
-/* 
-body {
-    background-color: #DCE8FF;  
-    color: #000000;
-    max-width: 1100px;
-    width: 100%;
-    margin: auto;
-    min-height: 100vh;
-}
-
-/* h1, h2, h3 {
-    color: #fff;
-}
-
-body .window { 
-    padding: 60px;
-    margin-bottom: 58px;
-    text-align: left;
-    background-color: #96B8FA;
-    width: 100%; 
-    max-width: 450px;
-    border-radius: 20px;
-    margin: auto;
-    margin-top: 50px;
-}
-
-body .input-box { 
-    margin: 0 0 10px;
-    max-width: 173px;
-
-
-} */
-
-/* body .container {
-    max-width: 250px;
-    margin: 0 auto;
-}
-
-main .wrapper {
-    font-family: 
-    font-size: 16px; 
-    line-height: 48px;
-    padding-bottom: 80px;
-    background-color: pink;
-    padding: 30px; 
-    border-radius: 25px; 
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-main .input-box {
-    max-width: 100px;
-}*/
-
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,800');
 
 body {
     background: #f6f5f7;
@@ -101,9 +46,9 @@ a {
 }
 
 button {
-	border-radius: 20px;
-	border: 1px solid #FF4B2B;
-	background-color: #FF4B2B;
+	border-radius: 10px;
+	border: 1px solid #0D21A1;
+	background-color: #0D21A1;
 	color: #FFFFFF;
 	font-size: 12px;
 	font-weight: bold;
@@ -147,7 +92,7 @@ input {
 
 .container {
 	background-color: #fff;
-	border-radius: 10px;
+	border-radius: 24px;
   	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
 			0 10px 10px rgba(0,0,0,0.22);
 	position: relative;
@@ -161,7 +106,7 @@ input {
 	position: absolute;
 	top: 0;
 	height: 100%;
-	transition: all 0.6s ease-in-out;
+	transition: all 0.8s ease-in-out;
 }
 
 .login {
@@ -185,7 +130,7 @@ input {
 	transform: translateX(100%);
 	opacity: 1;
 	z-index: 5;
-	animation: show 0.6s;
+	animation: show 0.8s;
 }
 
 @keyframes show {
@@ -207,7 +152,7 @@ input {
 	width: 50%;
 	height: 100%;
 	overflow: hidden;
-	transition: transform 0.6s ease-in-out;
+	transition: transform 0.8s ease-in-out;
 	z-index: 100;
 }
 
@@ -216,9 +161,7 @@ input {
 }
 
 .overlay {
-	background: #FF416C;
-	background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);
-	background: linear-gradient(to right, #FF4B2B, #FF416C);
+	background: #011638;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: 0 0;
@@ -228,7 +171,7 @@ input {
 	height: 100%;
 	width: 200%;
   	transform: translateX(0);
-	transition: transform 0.6s ease-in-out;
+	transition: transform 0.8s ease-in-out;
 }
 
 .container.right-panel-active .overlay {
@@ -267,45 +210,9 @@ input {
 	transform: translateX(20%);
 }
 
-.social-container {
-	margin: 20px 0;
+img {
+	width: 40%;
+	position: absolute;
+	bottom: 50px;
+	left: 30px; 
 }
-
-.social-container a {
-	border: 1px solid #DDDDDD;
-	border-radius: 50%;
-	display: inline-flex;
-	justify-content: center;
-	align-items: center;
-	margin: 0 5px;
-	height: 40px;
-	width: 40px;
-}
-
-footer {
-    background-color: #222;
-    color: #fff;
-    font-size: 14px;
-    bottom: 0;
-    position: fixed;
-    left: 0;
-    right: 0;
-    text-align: center;
-    z-index: 999;
-}
-
-footer p {
-    margin: 10px 0;
-}
-
-footer i {
-    color: red;
-}
-
-footer a {
-    color: #3c97bf;
-    text-decoration: none;
-}
-
-
-

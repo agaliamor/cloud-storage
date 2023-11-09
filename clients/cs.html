@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>Загрузить файл</h2>
+  <form id="uploadForm" enctype="multipart/form-data">
+    <input type="file" name="file" id="fileInput" required />
+    <button type="submit">Загрузить!</button>
+  </form>
+  
+  <h2>Загруженные файлы</h2>
+  <ul id="filesList"></ul>
+  
+  <h2>Скачанные файлы</h2>
+  <form id="downloadForm">
+    <select id="downloadSelect" required>
+      <option value="" disabled selected>Выбрать файл</option>
+    </select>
+    <button type="submit">Скачать!</button>
+  </form>
+</body>
+</html>
